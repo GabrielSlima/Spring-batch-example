@@ -49,7 +49,9 @@ public class BatchProcessingApplication {
     public void executeJob1() throws Exception
     {
     	resourceList = ResourcePatternUtils.getResourcePatternResolver(resourceLoader).getResources(filesFolder);
-    			
+    	/*for(Resource r : resourceList) {
+    		r.getFilename();
+    	}*/
         JobParameters params = new JobParametersBuilder()
                 .addString("importUserJob", String.valueOf(System.currentTimeMillis()))
                 .toJobParameters();

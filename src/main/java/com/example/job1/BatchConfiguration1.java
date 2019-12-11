@@ -27,7 +27,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @EnableBatchProcessing
-@Import(Job1Steps.class)
+@Import(value = {Job1Steps.class})
 public class BatchConfiguration1 extends DefaultBatchConfigurer {
 
 	@Autowired
@@ -43,7 +43,6 @@ public class BatchConfiguration1 extends DefaultBatchConfigurer {
 		return jobBuilderFactory.get("JOB1")
 			.validator(validator1())
 			.start(step1)
-			.next(step2DeleteFiles)
 			.build();
 	}
 
